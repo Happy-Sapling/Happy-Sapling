@@ -195,13 +195,15 @@ const styles = StyleSheet.create({
   },
   signInput: {
     backgroundColor: "rgba(242,204,143,0.67)",
-    fontSize: 22,
+    fontSize: 18,
+    padding: 10,
     height: 40,
     borderRadius: 8,
   },
   passwordInput: {
     backgroundColor: "rgba(224,122,95,0.21)",
-    fontSize: 22,
+    fontSize: 18,
+    padding: 10,
     borderRadius: 8,
     height: 40,
   },

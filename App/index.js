@@ -41,7 +41,7 @@ const AuthStackScreen = () => (
 );
 const Tabs = createBottomTabNavigator();
 const TabsScreen = () => (
-  <Tabs.Navigator>
+  <Tabs.Navigator tabBarOptions={{ keyboardHidesTabBar: true }}>
     <Tabs.Screen name="Home" component={HomeStackScreen} />
     <Tabs.Screen name="Journal" component={JournalStackScreen} />
     <Tabs.Screen name="Calendar" component={CalendarStackScreen} />
