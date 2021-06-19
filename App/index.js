@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -17,6 +17,7 @@ import Accomplishments from "./TabScreens/AccompScreens/Accomplishments";
 import AccomplishmentsLog from "./TabScreens/AccompScreens/AccomplishmentsLog";
 import Profile from "./TabScreens/Profile";
 import Splash from "./TabScreens/Splash";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthContext } from "./context";
 
 const AuthStack = createStackNavigator();
@@ -172,10 +173,16 @@ const RootStackScreen = ({ userToken }) => (
 );
 
 export default () => {
-  const [isLoading, setIsLoading] = React.useState(true);
-  const [userToken, setUserToken] = React.useState(null);
+  //const [isLoading, setIsLoading] = React.useState(true);
+  //const [userToken, setUserToken] = React.useState(null);
 
-  const authContext = React.useMemo(() => {
+  const initialLoginState = {
+    isLoading: true,
+    userName: null,
+    userToken: null,
+  };
+
+  /* const authContext = React.useMemo(() => {
     return {
       signIn: () => {
         setIsLoading(false);
@@ -191,20 +198,106 @@ export default () => {
       },
     };
   }, []);
+ */
 
-  React.useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
+  const loginReducer = (prevState, action) => {
+    switch (action.type) {
+      case "RETRIEVE_TOKEN":
+        return {
+          ...prevState,
+          userToken: action.token,
+          isLoading: false,
+        };
+      case "LOGIN":
+        return {
+          ...prevState,
+          userName: action.id,
+          userToken: action.token,
+          isLoading: false,
+        };
+      case "LOGOUT":
+        return {
+          ...prevState,
+          userName: null,
+          userToken: null,
+          isLoading: false,
+        };
+      case "REGISTER":
+        return {
+          ...prevState,
+          userName: action.id,
+          userToken: action.token,
+          isLoading: false,
+        };
+    }
+  };
+
+  const [loginState, dispatch] = React.useReducer(
+    loginReducer,
+    initialLoginState
+  );
+
+  const authContext = React.useMemo(
+    () => ({
+      signIn: async (foundUser) => {
+        // setUserToken('fgkj');
+        // setIsLoading(false);
+        const userToken = String(userToken);
+
+        try {
+          await AsyncStorage.setItem("userToken", userToken);
+        } catch (e) {
+          console.log(e);
+        }
+        // console.log('user token: ', userToken);
+        dispatch({ type: "LOGIN", token: userToken });
+      },
+      signOut: async () => {
+        // setUserToken(null);
+        // setIsLoading(false);
+        try {
+          await AsyncStorage.removeItem("userToken");
+        } catch (e) {
+          console.log(e);
+        }
+        dispatch({ type: "LOGOUT" });
+      },
+      signUp: () => {
+        // setUserToken('fgkj');
+        // setIsLoading(false);
+      },
+    }),
+    []
+  );
+
+  useEffect(() => {
+    setTimeout(async () => {
+      // setIsLoading(false);
+      let userToken;
+      userToken = null;
+      try {
+        userToken = await AsyncStorage.getItem("userToken");
+      } catch (e) {
+        console.log(e);
+      }
+      // console.log('user token: ', userToken);
+      dispatch({ type: "RETRIEVE_TOKEN", token: userToken });
     }, 1000);
   }, []);
 
-  if (isLoading) {
+  /* React.useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []); */
+
+  if (loginState.isLoading) {
     return <Splash />;
   }
   return (
     <AuthContext.Provider value={authContext}>
       <NavigationContainer>
-        <RootStackScreen userToken={userToken} />
+        <RootStackScreen userToken={loginState.userToken} />
       </NavigationContainer>
     </AuthContext.Provider>
   );
