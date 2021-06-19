@@ -1,0 +1,3 @@
+[submodule "Happy-Sapling-Backend"]
+	path = Happy-Sapling-Backend
+	url = https://github.com/Happy-Sapling/Happy-Sapling-Backend.git
