@@ -113,6 +113,7 @@ const QuestionsStackScreen = () => (
       component={Question3}
       options={{
         animationEnabled: false,
+        headerShown: false,
       }}
     />
   </QuestionsStack.Navigator>
