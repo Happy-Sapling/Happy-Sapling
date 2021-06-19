@@ -30,7 +30,11 @@ const AuthStackScreen = () => (
     <AuthStack.Screen
       name="CreateAccount"
       component={CreateAccount}
-      options={{ title: "Create Account", animationEnabled: false }}
+      options={{
+        title: "Create Account",
+        animationEnabled: false,
+        headerShown: false,
+      }}
     />
   </AuthStack.Navigator>
 );
