@@ -2,23 +2,21 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import {
-  Journal,
-  JournalLog,
-  Meditate,
-  Question1,
-  Question2,
-  Question3,
-  Accomplishments,
-  AccomplishmentsLog,
-  Splash,
-} from "./Screens";
 import SignIn from "./AuthScreens/SignIn";
 import CreateAccount from "./AuthScreens/CreateAccount";
 
 import Home from "./TabScreens/Home";
+import Journal from "./TabScreens/JournalScreens/Journal";
+import JournalLog from "./TabScreens/JournalScreens/JournalLog";
 import Calendar from "./TabScreens/Calendar";
+import Meditate from "./TabScreens/Meditate";
+import Question1 from "./TabScreens/QuestionsScreens/Question1";
+import Question2 from "./TabScreens/QuestionsScreens/Question2";
+import Question3 from "./TabScreens/QuestionsScreens/Question3";
+import Accomplishments from "./TabScreens/AccompScreens/Accomplishments";
+import AccomplishmentsLog from "./TabScreens/AccompScreens/AccomplishmentsLog";
 import Profile from "./TabScreens/Profile";
+import Splash from "./TabScreens/Splash";
 import { AuthContext } from "./context";
 
 const AuthStack = createStackNavigator();
