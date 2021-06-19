@@ -5,10 +5,7 @@ export default function Question3({ navigation }) {
   return (
     <View style={styles.container}>
       <Text>Question3 Screen</Text>
-      <Button
-        title="Submit Entry"
-        onPress={() => navigation.push("Question3")}
-      />
+      <Button title="Submit Entry" onPress={() => alert("todo!")} />
     </View>
   );
 }
