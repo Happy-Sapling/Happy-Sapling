@@ -150,8 +150,6 @@ export default function CreateAccount() {
             .createUser(user)
             .then((response) => console.log(response))
             .catch((error) => console.log(error));
-
-          //signUp()
         }}
       >
         <Text style={styles.createAccountText}>Create Account</Text>
