@@ -126,14 +126,14 @@ const AccomplishmentsStackScreen = () => (
       name="Accomplishments"
       component={Accomplishments}
       options={{
-        animationEnabled: false,
+        animationEnabled: false, headerShown: false
       }}
     />
     <AccomplishmentsStack.Screen
       name="AccomplishmentsLog"
       component={AccomplishmentsLog}
       options={{
-        animationEnabled: false,
+        animationEnabled: false, headerShown: false
       }}
     />
   </AccomplishmentsStack.Navigator>
