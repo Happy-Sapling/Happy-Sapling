@@ -21,6 +21,7 @@ import AppLoading from "expo-app-loading";
 const { width, height } = Dimensions.get("screen");
 
 export default function CreateAccount({ navigation }) {
+  //Please do not take out the following:
   const { signUp } = React.useContext(AuthContext);
 
   return (
