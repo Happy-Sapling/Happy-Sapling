@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Text, View, StyleSheet, TextInput, Image, TouchableOpacity, Dimensions } from 'react-native';
 
 // You can import from local files
-import nav_bar from './assets/nav_bar.png';
+import nav_bar from '../../../assets/nav_bar.png';
 
 // or any pure javascript modules available in npm
 
@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#D4ECE0',
     position: 'relative',
     alignSelf: 'center',
-    cursor: 'pointer',
     fontSize: 19,
   },
   entry: {
@@ -67,7 +66,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#CCE1F2',
     position: 'relative',
     alignSelf: 'center',
-    cursor: 'pointer'
   },
   button: {
     backgroundColor: "#878AA0",
@@ -77,8 +75,7 @@ const styles = StyleSheet.create({
     bottom: 85,
     borderRadius: 20,
     alignItems: "center",
-    justifyContent: "center",
-    cursor: 'pointer'
+    justifyContent: "center"
   },
   buttonText: {
     color: "white",
@@ -88,8 +85,7 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     bottom: height*0.01, // top: 1%
-    alignSelf: 'center',
-    cursor: 'pointer',
+    alignSelf: 'center'
   },
 });
 

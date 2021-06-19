@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Text, View, StyleSheet, TextInput, Image, Dimensions } from 'react-native';
 
 // You can import from local files
-import go_back from '../././';
+import go_back from '../../../assets/go_back.png';
 
 // or any pure javascript modules available in npm
 const {width, height} = Dimensions.get("screen")
@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#CACACA',
     position: 'relative',
     alignSelf: 'center',
-    cursor: 'pointer',
     fontSize: 19,
   },
   entryBackground: {
@@ -67,7 +66,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#F2D5CC',
     position: 'relative',
     alignSelf: 'center',
-    cursor: 'pointer'
   },
   entryText: {
     flex: 1,
@@ -82,7 +80,6 @@ const styles = StyleSheet.create({
     height: 23,
     right: "-7%",
     bottom: height*0.75,  // 74%
-    cursor: 'pointer'
   }
 });
 

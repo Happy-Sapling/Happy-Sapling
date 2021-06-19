@@ -3,15 +3,15 @@ import { AuthContext } from "../context";
 import { Text, View, StyleSheet, Dimensions, Image } from 'react-native';
 
 // You can import from local files
-import nav_bar from './assets/nav_bar.png';
-import alice from './assets/alice.png';
-import circle from './assets/circle.png';
-import lock from './assets/lock.png';
-import trashcan from './assets/trashcan.png';
-import twitter from './assets/twitter.png';
-import facebook from './assets/facebook.png';
-import instagram from './assets/instagram.png';
-import snapchat from './assets/snapchat.png';
+
+/*import alice from '../../../assets/alice';
+import circle from '../../../assets/circle';
+import lock from '../../../assets/lock';
+import trashcan from '../../../assets/trashcan';
+import twitter from '../../../assets/twitter';
+import facebook from '../../../assets/facebook';
+import instagram from '../../../assets/instagram';
+import snapchat from '../../../assets/snapchat';*/
 
 const {width, height} = Dimensions.get("screen")
 
@@ -26,8 +26,8 @@ export default function Profile({ navigation }) {
       </View>
 
       <View style={styles.userSection}>
-        <Image style={styles.circle} source={circle} />
-        <Image style={styles.alicePic} source={alice} />
+        <Image style={styles.circle} source={require("../../assets/circle.png")} />
+        <Image style={styles.alicePic} source={require("../../assets/alice.png")} />
         <Text style={styles.aliceName}>Alice Smith</Text>
         <Text style={styles.aliceFeeling}>Feeling Happy</Text>
         <View style={styles.aliceFeelingColor}></View>
@@ -37,23 +37,23 @@ export default function Profile({ navigation }) {
         <Text style={styles.settingTitle}>Settings</Text>
         <View style={styles.settingLine}></View>
         <View style={styles.settingOption}> 
-          <Image style={styles.settingImage1} source={lock} onPress={() => signOut()}/>
+          <Image style={styles.settingImage1} source={require("../../assets/lock.png")} onPress={() => signOut()}/>
           <Text style={styles.settingText1} onPress={() => signOut()}>Log out</Text>
         </View>
         <View style={styles.settingOption}>
-          <Image style={styles.settingImage2} source={trashcan} />
+          <Image style={styles.settingImage2} source={require("../../assets/trashcan.png")} />
           <Text style={styles.settingText2}>Delete account</Text>
         </View>
       </View>
 
       <View style={styles.iconSection}>
         <View style={styles.iconBar}>
-          <Image style={styles.iconImage} source={twitter} />
-          <Image style={styles.iconImage} source={facebook} />
-          <Image style={styles.iconImage} source={instagram} />
-          <Image style={styles.iconImage} source={snapchat} />
+          <Image style={styles.iconImage} source={require("../../assets/twitter.png")} />
+          <Image style={styles.iconImage} source={require("../../assets/facebook.png")}/>
+          <Image style={styles.iconImage} source={require("../../assets/instagram.png")} />
+          <Image style={styles.iconImage} source={require("../../assets/snapchat.png")} />
         </View>
-        <Image style={styles.navBar} source={nav_bar} />
+        <Image style={styles.navBar} source={require("../../assets/nav_bar.png")} />
       </View>
 
     </View>

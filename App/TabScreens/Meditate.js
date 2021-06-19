@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, Dimensions, Animated, Image } from "react-nativ
 const { width, height } = Dimensions.get("window");
 const circleWidth = width*0.6;
 
-import nav_bar from './assets/nav_bar.png';
+import nav_bar from '../../assets/nav_bar.png';
 
 export default function Meditate({ navigation }) {
   const move = useRef(new Animated.Value(0)).current;
@@ -135,7 +135,6 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     bottom: height*-0.4, // top: 1%
-    alignSelf: 'center',
-    cursor: 'pointer',
+    alignSelf: 'center'
   }
 });

@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Dimensions, Image } from "react-native";
 
-// You can import from local files
-import sun from './assets/sun.png';
+// removed sun import
 
 // or any pure javascript modules available in npm
 
@@ -19,8 +18,8 @@ export default function Home({ navigation }) {
         <View style={styles.semiMediumCircle}></View>
         <View style={styles.smallCircle}></View>
 
-        <Image style={styles.sun1} source={sun} />
-        <Image style={styles.sun2} source={sun} />
+        <Image style={styles.sun1} source={require("../../assets/sun.png")} />
+        <Image style={styles.sun2} source={require("../../assets/sun.png")} />
 
         <Text style={styles.text}>Streak: 10 days</Text>
 
@@ -50,28 +49,28 @@ const styles = StyleSheet.create({
     width: width*0.8,
     height: width*0.8,
     backgroundColor: '#88B49C',
-    borderRadius: '160%',
+    borderRadius: 30, // 160%
     position: 'absolute'
   },
   mediumCircle: {
     width: width*0.67,
     height: width*0.67,
     backgroundColor: '#99BFAA',
-    borderRadius: '130%',
+    borderRadius: 25, // 130%
     position: 'absolute'
   },
   semiMediumCircle: {
     width: width*0.55,
     height: width*0.55,
     backgroundColor: '#AED1BE',
-    borderRadius: '110%',
+    borderRadius: 20, //110%
     position: 'absolute'
   },
   smallCircle: {
     width: width*0.4,
     height: width*0.4,
     backgroundColor: '#C5E0D1',
-    borderRadius: '100%',
+    borderRadius: 15, // 100%
     position: 'absolute'
   },
   sun1: {
