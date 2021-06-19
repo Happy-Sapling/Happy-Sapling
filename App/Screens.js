@@ -21,12 +21,6 @@ const ScreenContainer = ({ children }) => (
   <View style={styles.container}>{children}</View>
 );
 
-export const Home = ({ navigation }) => (
-  <ScreenContainer>
-    <Text>Master List Screen</Text>
-  </ScreenContainer>
-);
-
 export const Search = ({ navigation }) => (
   <ScreenContainer>
     <Text>Search Screen</Text>
@@ -38,23 +32,6 @@ export const Search = ({ navigation }) => (
 export const Search2 = () => (
   <ScreenContainer>
     <Text>Search2 Screen</Text>
-  </ScreenContainer>
-);
-
-export const Profile = ({ navigation }) => {
-  const { signOut } = React.useContext(AuthContext);
-
-  return (
-    <ScreenContainer>
-      <Text>Profile Screen</Text>
-      <Button title="Sign Out" onPress={() => signOut()} />
-    </ScreenContainer>
-  );
-};
-
-export const Calendar = () => (
-  <ScreenContainer>
-    <Text>Calendar Screen</Text>
   </ScreenContainer>
 );
 
@@ -156,17 +133,6 @@ export const SignIn = ({ navigation }) => {
         title="Create Account"
         onPress={() => navigation.push("CreateAccount")}
       />
-    </ScreenContainer>
-  );
-};
-
-export const CreateAccount = () => {
-  const { signUp } = React.useContext(AuthContext);
-
-  return (
-    <ScreenContainer>
-      <Text>Create Account Screen</Text>
-      <Button title="Sign Up" onPress={() => signUp()} />
     </ScreenContainer>
   );
 };

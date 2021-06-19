@@ -3,10 +3,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
-  SignIn,
-  CreateAccount,
-  Profile,
-  Home,
   Journal,
   JournalLog,
   Meditate,
@@ -15,9 +11,14 @@ import {
   Question3,
   Accomplishments,
   AccomplishmentsLog,
-  Calendar,
   Splash,
 } from "./Screens";
+import SignIn from "./AuthScreens/SignIn";
+import CreateAccount from "./AuthScreens/CreateAccount";
+
+import Home from "./TabScreens/Home";
+import Calendar from "./TabScreens/Calendar";
+import Profile from "./TabScreens/Profile";
 import { AuthContext } from "./context";
 
 const AuthStack = createStackNavigator();
