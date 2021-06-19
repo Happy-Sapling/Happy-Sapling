@@ -10,8 +10,6 @@ import {
 
 import { AuthContext } from "../context";
 
-// or any pure javascript modules available in npm
-
 const { width, height } = Dimensions.get("screen");
 
 export default function CreateAccount({ navigation }) {
