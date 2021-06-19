@@ -65,8 +65,6 @@ export const Meditate = () => (
 );
 
 export const Journal = ({ navigation }) => {
-  //const { signOut } = React.useContext(AuthContext);
-
   return (
     <ScreenContainer>
       <Text>Journal Screen</Text>
@@ -120,8 +118,6 @@ export const Question3 = ({ navigation }) => {
 };
 
 export const Accomplishments = ({ navigation }) => {
-  //const { signOut } = React.useContext(AuthContext);
-
   return (
     <ScreenContainer>
       <Text>Accomplishments Screen</Text>
