@@ -35,7 +35,7 @@ export default function CreateAccount({ navigation }) {
               backgroundColor: "transparent",
             }}
           >
-            <Text style={styles.SignInText}>Sign In</Text>
+            <Text style={styles.SignInText}>Create your account</Text>
           </View>
         </TouchableOpacity>
       </View>
