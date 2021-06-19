@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 25,
-    color: "0D0D0D",
+    color: "#0D0D0D",
     textAlign: 'left',
     paddingHorizontal: 20,
     marginTop:-20
