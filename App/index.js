@@ -104,6 +104,7 @@ const QuestionsStackScreen = () => (
       component={Question2}
       options={{
         animationEnabled: false,
+        headerShown: false,
       }}
     />
     <QuestionsStack.Screen
