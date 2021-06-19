@@ -7,6 +7,14 @@ const circleWidth = width*0.6;
 
 import nav_bar from '../../assets/nav_bar.png';
 
+import {
+  useFonts,
+  Lato_300Light,
+  Lato_400Regular,
+  Lato_700Bold,
+  Lato_900Black,
+} from "@expo-google-fonts/lato";
+
 export default function Meditate({ navigation }) {
   const move = useRef(new Animated.Value(0)).current;
   const textOpacity = useRef(new Animated.Value(1)).current;
@@ -50,7 +58,7 @@ export default function Meditate({ navigation }) {
   });
   return (
     <View style={styles.container}>
-        <Text style={styles.title}>Meditate</Text>
+        <Text style={styles.title}>MEDITATE</Text>
         <Animated.View
           style={{
             width: circleWidth,
@@ -121,12 +129,12 @@ const styles = StyleSheet.create({
     top: '32%',
   },
   title: {
-    top: -185,
-    right: 63,
+    top: -184,
+    right: 70,
     margin: 20,
     padding: 10,
-    fontSize: 43,
-    fontWeight: 'bold',
+    fontSize: 45,
+    fontFamily: 'Lato_400Regular'
   },
   text: {
     fontSize: 19,
@@ -134,7 +142,8 @@ const styles = StyleSheet.create({
   image: {
     width: 30,
     height: 30,
-    bottom: height*-0.4, // top: 1%
+    left: '-3%',
+    bottom: height*-0.38, // top: 1%
     alignSelf: 'center'
   }
 });
