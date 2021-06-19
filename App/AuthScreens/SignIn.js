@@ -98,7 +98,6 @@ const styles = StyleSheet.create({
     fontSize: 36,
     textAlign: "center",
     fontFamily: "Lato_400Regular",
-    //backgroundColor: "dodgerblue",
   },
 
   inputBox: {
@@ -119,14 +118,12 @@ const styles = StyleSheet.create({
     fontSize: 22,
     height: 40,
     borderRadius: 8,
-    //fontFamily: "Lato_400Regular",
   },
   passwordInput: {
     backgroundColor: "rgba(224,122,95,0.21)",
     fontSize: 22,
     borderRadius: 8,
     height: 40,
-    //fontFamily: "Lato_400Regular",
   },
   SignIn: {
     padding: 15,
