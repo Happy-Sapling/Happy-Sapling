@@ -1,28 +1,20 @@
 import * as React from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  TextInput,
-  Image,
-  Dimensions,
-} from "react-native";
+import { Text, View, StyleSheet, ScrollView, Dimensions } from "react-native";
 import apis from "../../../api";
 
 // or any pure javascript modules available in npm
 const { width, height } = Dimensions.get("screen");
 
-// NEED TO ADD ICON AT TOP STILL TO RETURN TO JOURNAL PAGE
-
-export default function JournalLog({ navigation }) {
+export default function JournalLog({ props }) {
   const [journalLog, setJournalLog] = React.useState([]);
+  const [data, setData] = React.useState();
 
   React.useEffect(() => {
     async function loadDataAsync() {
       try {
-        await apis.getJournals().then((journals) => {
-          setJournalLog(journals.data.data);
-          console.log("working");
+        await apis.getJournals().then((journalsList) => {
+          setJournalLog(journalsList.data.data);
+          console.log(journalLog);
         });
       } catch (e) {
         console.warn(e);
@@ -30,22 +22,30 @@ export default function JournalLog({ navigation }) {
     }
     loadDataAsync();
   }, []);
+  console.log(journalLog);
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Journal Log</Text>
-      <TextInput
-        style={styles.date}
-        placeholder="   Select Date"
-        placeholderTextColor="#484646"
-      />
-      <View style={styles.entryBackground}>
-        <Text style={styles.entryText}>My Journal Log</Text>
-      </View>
-      <Image
-        style={styles.image}
-        source={require("../../../assets/go_back.png")}
-      />
+      <ScrollView
+        style={{
+          height: "100%",
+          width: "88%",
+          top: 10,
+          margin: 20,
+          padding: 20,
+          borderRadius: 15,
+          backgroundColor: "#F2D5CC",
+          position: "relative",
+          alignSelf: "center",
+        }}
+      >
+        {journalLog.map((journalLog) => (
+          <Text key={journalLog._id} style={styles.entryText}>
+            {journalLog.submission}
+          </Text>
+        ))}
+      </ScrollView>
     </View>
   );
 }
@@ -83,12 +83,12 @@ const styles = StyleSheet.create({
     fontSize: 19,
   },
   entryBackground: {
-    height: "40%",
+    height: "100%",
     width: "88%",
     top: 15,
     margin: 20,
-    padding: 10,
-    borderRadius: 20,
+    padding: 15,
+    borderRadius: 15,
     backgroundColor: "#F2D5CC",
     position: "relative",
     alignSelf: "center",
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     fontSize: 19,
-    color: "#474747",
+    color: "black",
     margin: 15,
     paddingTop: 3,
   },

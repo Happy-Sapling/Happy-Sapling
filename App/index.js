@@ -80,6 +80,8 @@ const JournalStackScreen = () => (
       component={JournalLog}
       options={{
         animationEnabled: false,
+        headerTitle: "",
+        headerStyle: { elevation: 0, backgroundColor: "#f5f5f5" },
       }}
     />
   </JournalStack.Navigator>
@@ -154,7 +156,11 @@ const AccomplishmentsStackScreen = () => (
 const ProfileStack = createStackNavigator();
 const ProfileStackScreen = () => (
   <ProfileStack.Navigator>
-    <ProfileStack.Screen name="Profile" component={Profile} />
+    <ProfileStack.Screen
+      name="Profile"
+      component={Profile}
+      options={{ headerShown: false }}
+    />
   </ProfileStack.Navigator>
 );
 

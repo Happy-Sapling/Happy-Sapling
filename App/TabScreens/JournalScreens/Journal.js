@@ -63,10 +63,6 @@ export default function Journal({ navigation }) {
           Submit
         </Text>
       </TouchableOpacity>
-      <Image
-        style={styles.image}
-        source={require("../../../assets/nav_bar.png")}
-      />
     </View>
   );
 }
