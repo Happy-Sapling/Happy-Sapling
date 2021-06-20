@@ -8,13 +8,20 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+import {
+  useFonts,
+  Lato_300Light,
+  Lato_400Regular,
+  Lato_700Bold,
+  Lato_900Black,
+} from "@expo-google-fonts/lato";
+
 const { width, height } = Dimensions.get("screen");
 
 export default function Question2({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>How are you</Text>
-      <Text style={styles.title}>feeling today?</Text>
+      <Text style={styles.title}>How are you feeling today?</Text>
 
       <View style={styles.box}>
         <View style={styles.submitButton}>
@@ -47,7 +54,8 @@ const styles = StyleSheet.create({
   title: {
     flexDirection: "row",
     textAlign: "center",
-    fontSize: 30,
+    fontSize: 29,
+    fontFamily: 'Lato_400Regular',
   },
   box: {
     backgroundColor: "#CCE1F2",
@@ -68,9 +76,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#F4F1DE",
     paddingVertical: height * 0.022,
+    fontSize: 15.5,
   },
   words: {
     marginTop: -height * 0.54,
     marginHorizontal: width * 0.12,
+    fontSize: 18,
+    marginLeft: 61
   },
 });

@@ -8,14 +8,20 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+import {
+  useFonts,
+  Lato_300Light,
+  Lato_400Regular,
+  Lato_700Bold,
+  Lato_900Black,
+} from "@expo-google-fonts/lato";
+
 const { width, height } = Dimensions.get("screen");
 
 export default function Question3({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>What is one goal you</Text>
-      <Text style={styles.title}>would like to</Text>
-      <Text style={styles.title}>accomplish today?</Text>
+      <Text style={styles.title}>What is one goal you would like to accomplish today?</Text>
       <View style={styles.box}>
         <View style={styles.submitButton}>
           <TouchableOpacity onPress={() => alert("todo!")}>
@@ -47,7 +53,10 @@ const styles = StyleSheet.create({
   title: {
     flexDirection: "row",
     textAlign: "center",
-    fontSize: 30,
+    fontSize: 28.5,
+    fontFamily: 'Lato_400Regular',
+    width: width*0.83,
+    alignSelf: 'center'
   },
   box: {
     backgroundColor: "#D4ECE0",
@@ -68,9 +77,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#F4F1DE",
     paddingVertical: height * 0.022,
+    fontSize: 15.5
   },
   words: {
-    marginTop: -height * 0.54,
+    marginTop: -height * 0.545,
     marginHorizontal: width * 0.12,
+    fontSize: 18,
+    marginLeft: 61
   },
 });

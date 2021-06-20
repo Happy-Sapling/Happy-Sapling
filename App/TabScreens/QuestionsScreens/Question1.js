@@ -7,11 +7,20 @@ import {
   Dimensions,
 } from "react-native";
 
+import {
+  useFonts,
+  Lato_300Light,
+  Lato_400Regular,
+  Lato_700Bold,
+  Lato_900Black,
+} from "@expo-google-fonts/lato";
+
+const { width, height } = Dimensions.get("screen");
+
 export default function Question1({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>
-        {" "}
         Pick one colour to describe your current mood:
       </Text>
       <View style={styles.eachRow}>
@@ -62,7 +71,11 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: -10,
     marginBottom: 15,
-    fontSize: 24,
+    fontSize: 26,
+    fontFamily: 'Lato_400Regular',
+    width: width*0.8,
+    alignSelf: 'center',
+    top: height*-0.02
   },
   boxPink: {
     width: 60,
