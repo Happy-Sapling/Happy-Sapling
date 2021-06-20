@@ -9,9 +9,7 @@ import {
   Image,
 } from "react-native";
 
-
 import { useFonts, Lato_400Regular } from "@expo-google-fonts/lato";
-
 import AppLoading from "expo-app-loading";
 
 const { width, height } = Dimensions.get("screen");
@@ -119,7 +117,10 @@ export default function Meditate({ navigation }) {
             ></Animated.View>
           );
         })}
-        <Image style={styles.image} source={require("../../assets/nav_bar.png")} />
+        <View style={styles.timerContainer}>
+          <Image style={styles.timerButton} source={require("../../assets/timerOutline.png")} />
+          <Text style={styles.timerText}>1 0 : 0 0</Text>
+        </View>
       </View>
     );
   }
@@ -137,10 +138,10 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     position: "absolute",
     left: "20%",
-    top: "32%",
+    top: "38%",
   },
   title: {
-    top: -184,
+    top: '-100%',
     right: 70,
     margin: 20,
     padding: 10,
@@ -151,11 +152,19 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 19,
   },
-  image: {
-    width: 30,
-    height: 30,
+  timerContainer: {
     left: "-3%",
-    bottom: height * -0.38, // top: 1%
+    bottom: '-130%',
+  },
+  timerButton: {
+    width: 205,
+    height: 62,
     alignSelf: "center",
   },
+  timerText: {
+    fontSize: 25,
+    fontFamily: "Lato_400Regular",
+    alignSelf: 'center',
+    bottom: 45
+  }
 });
