@@ -23,30 +23,37 @@ export default function JournalLog({ props }) {
   }, []);
   console.log(journalLog);
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Journal Log</Text>
-      <ScrollView
-        style={{
-          height: "100%",
-          width: "88%",
-          top: 10,
-          margin: 20,
-          padding: 20,
-          borderRadius: 15,
-          backgroundColor: "#F2D5CC",
-          position: "relative",
-          alignSelf: "center",
-        }}
-      >
-        {journalLog.map((journalLog) => (
-          <Text key={journalLog._id} style={styles.entryText}>
-            {journalLog.submission}
-          </Text>
-        ))}
-      </ScrollView>
-    </View>
-  );
+  let [fontsLoaded] = useFonts({
+    Lato_400Regular,
+  });
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.title}>Journal Log</Text>
+        <ScrollView
+          style={{
+            height: "100%",
+            width: "88%",
+            top: 10,
+            margin: 20,
+            padding: 20,
+            borderRadius: 15,
+            backgroundColor: "#F2D5CC",
+            position: "relative",
+            alignSelf: "center",
+          }}
+        >
+          {journalLog.map((journalLog) => (
+            <Text key={journalLog._id} style={styles.entryText}>
+              {journalLog.submission}
+            </Text>
+          ))}
+        </ScrollView>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -58,21 +65,24 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   title: {
-    top: "4%",
-    right: "12%",
+    top: "8%",
+    right: "7.5%",
     margin: 20,
     padding: 10,
     fontSize: 45,
-    fontWeight: "bold",
+    fontWeight: "200",
     textAlign: "center",
     position: "relative",
+
     justifyContent: "center",
     alignItems: "center",
+    fontFamily: "Lato_400Regular",
   },
   date: {
     height: "10%",
-    width: "88%",
-    top: height * 0.04, // 35
+    width: "87%",
+    top: height * 0.06, // 35
+
     margin: 20,
     padding: 10,
     borderRadius: 20,
@@ -82,9 +92,10 @@ const styles = StyleSheet.create({
     fontSize: 19,
   },
   entryBackground: {
-    height: "100%",
+    height: "50%",
     width: "88%",
-    top: 15,
+    top: 33,
+
     margin: 20,
     padding: 15,
     borderRadius: 15,
@@ -104,6 +115,7 @@ const styles = StyleSheet.create({
     width: 23,
     height: 23,
     right: "-7%",
-    bottom: height * 0.75, // 74%
+
+    bottom: height * 0.73, // 74%
   },
 });
