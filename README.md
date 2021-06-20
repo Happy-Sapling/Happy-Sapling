@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="pictures/icon.png" alt="Logo" width="200px" /><br/>
+  <img src="pictures/icon.png" alt="Logo" width="100px" /><br/>
 </p>
 
 # Happy-Sapling
