@@ -4,7 +4,6 @@ import {
   View,
   StyleSheet,
   TextInput,
-  Image,
   TouchableOpacity,
   Dimensions,
 } from "react-native";

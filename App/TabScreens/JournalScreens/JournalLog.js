@@ -7,7 +7,6 @@ const { width, height } = Dimensions.get("screen");
 
 export default function JournalLog({ props }) {
   const [journalLog, setJournalLog] = React.useState([]);
-  const [data, setData] = React.useState();
 
   React.useEffect(() => {
     async function loadDataAsync() {
