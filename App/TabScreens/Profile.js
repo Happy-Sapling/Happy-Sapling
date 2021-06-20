@@ -1,6 +1,4 @@
 import * as React from "react";
-import React from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
 import { AuthContext } from "../context";
 import { Text, View, StyleSheet, Dimensions, Image } from "react-native";
 
@@ -85,9 +83,6 @@ export default function Profile({ navigation }) {
             source={require("../../assets/nav_bar.png")}
           />
         </View>
-
-        <Text>Profile Screen</Text>
-        <Button title="Sign Out" onPress={() => signOut()} />
       </View>
     );
   }
