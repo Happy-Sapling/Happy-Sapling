@@ -15,8 +15,6 @@ const { width, height } = Dimensions.get("screen");
 
 import apis from "../../../api";
 
-const { width, height } = Dimensions.get("screen");
-
 export default function Accomplishments({ navigation }) {
   const [input, setInput] = React.useState("");
   const trophy = {

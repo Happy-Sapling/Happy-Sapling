@@ -2,8 +2,10 @@ import * as React from "react";
 import { Text, View, StyleSheet, ScrollView, Dimensions } from "react-native";
 import apis from "../../../api";
 
-// or any pure javascript modules available in npm
 const { width, height } = Dimensions.get("screen");
+
+import { useFonts, Lato_400Regular } from "@expo-google-fonts/lato";
+import AppLoading from "expo-app-loading";
 
 export default function JournalLog({ props }) {
   const [journalLog, setJournalLog] = React.useState([]);
@@ -55,7 +57,6 @@ export default function JournalLog({ props }) {
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
