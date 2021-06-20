@@ -22,11 +22,15 @@ import { AuthContext } from "./context";
 
 const AuthStack = createStackNavigator();
 const AuthStackScreen = () => (
-  <AuthStack.Navigator>
+  <AuthStack.Navigator tabBarOptions={{ keyboardHidesTabBar: true }}>
     <AuthStack.Screen
       name="SignIn"
       component={SignIn}
-      options={{ title: "Sign In", headerShown: false }}
+      options={{
+        title: "Sign In",
+        headerShown: false,
+        animationEnabled: false,
+      }}
     />
     <AuthStack.Screen
       name="CreateAccount"
@@ -35,6 +39,7 @@ const AuthStackScreen = () => (
         title: "Create Account",
         animationEnabled: false,
         headerShown: false,
+        animationEnabled: false,
       }}
     />
   </AuthStack.Navigator>

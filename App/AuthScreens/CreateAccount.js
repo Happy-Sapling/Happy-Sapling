@@ -12,10 +12,11 @@ import { useState } from "react";
 import apis from "../../api";
 
 import { AuthContext } from "../context";
+import { NavigationContainer } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("screen");
 
-export default function CreateAccount() {
+export default function CreateAccount({ navigation }) {
   //Please do not take out the following:
   const { signIn } = React.useContext(AuthContext);
 
@@ -46,7 +47,7 @@ export default function CreateAccount() {
     } else if (confirmPassword !== password) {
       Alert.alert("Passwords do not match");
     } else {
-      signIn();
+      navigation.push("SignIn");
     }
   };
 
