@@ -28,3 +28,17 @@ We learned a lot about React Native, as two group members had never used the fra
 ### What's next for Happy Sapling
 One area of our app that has very strong potential is the calendar section. In the future, we would like to make this calendar much more interactive, allowing users to see other information about any given day on the calendar, including their responses to the opening questions. We would also like to allow users to share their entries and successes on social media by connecting popular platforms to the app. Finally, we would like implement the streak feature and connect this to the backend.
 
+## Commands to Run
+ 
+In the project directory, you can run the following commands:
+ 
+### `npm start`
+ 
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+ 
+### `nodemon index.js`
+ 
+Runs the development server to connect with the MongoDB database. In the terminal "listening on port 9000... Database Connected Succesfully" should be running.
+
