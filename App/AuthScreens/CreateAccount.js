@@ -6,17 +6,70 @@ import {
   Dimensions,
   TouchableOpacity,
   TextInput,
+  Alert,
 } from "react-native";
+import { useState } from "react";
+import apis from "../../api";
 
 import { AuthContext } from "../context";
 
-// or any pure javascript modules available in npm
-
 const { width, height } = Dimensions.get("screen");
 
-export default function CreateAccount({ navigation }) {
+export default function CreateAccount() {
   //Please do not take out the following:
-  const { signUp } = React.useContext(AuthContext);
+  const { signIn } = React.useContext(AuthContext);
+
+  const [first, setFirst] = useState("");
+  const [last, setLast] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const user = {
+    firstName: first,
+    lastName: last,
+    email: email,
+    password: password,
+  };
+
+  const checkTextInput = () => {
+    if (first === "" || first === null) {
+      Alert.alert("Please enter your first name");
+    } else if (last === "" || last === null) {
+      Alert.alert("Please enter your last name");
+    } else if (email === "" || email === null) {
+      Alert.alert("Please enter an email");
+    } else if (password === "" || password === null) {
+      Alert.alert("Oops, you forgot to enter a password.");
+    } else if (confirmPassword === "" || confirmPassword === null) {
+      Alert.alert("Please confirm your password");
+    } else if (confirmPassword !== password) {
+      Alert.alert("Passwords do not match");
+    } else {
+      signIn();
+    }
+  };
+
+  const lengthCheck = () => {
+    if (email.length < 8) {
+      Alert.alert("Too short!");
+    }
+  };
+
+  var strongRegex = new RegExp(
+    "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
+  );
+
+  const passwordCheck = () => {
+    if (strongRegex.test(password)) {
+      return;
+    } else {
+      Alert.alert(
+        "Password must contain at least:1 lowercase alphabetical character, 1 uppercase alphabetical character,  1 numeric character, 1 special character and be 8 characters long."
+      );
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Happy Sapling</Text>
@@ -26,7 +79,10 @@ export default function CreateAccount({ navigation }) {
         <View style={styles.inputContainer}>
           <TextInput
             blurOnSubmit={false}
+            autoCapitalize="none"
             returnKeyType="next"
+            value={first}
+            onChangeText={(first) => setFirst(first)}
             style={styles.firstNameInput}
           />
         </View>
@@ -35,7 +91,10 @@ export default function CreateAccount({ navigation }) {
         <View style={styles.inputContainer}>
           <TextInput
             blurOnSubmit={false}
+            autoCapitalize="none"
             returnKeyType="next"
+            value={last}
+            onChangeText={(last) => setLast(last)}
             style={styles.lastNameInput}
           />
         </View>
@@ -44,7 +103,10 @@ export default function CreateAccount({ navigation }) {
         <View style={styles.inputContainer}>
           <TextInput
             blurOnSubmit={false}
+            autoCapitalize="none"
             returnKeyType="done"
+            value={email}
+            onChangeText={(email) => setEmail(email)}
             style={styles.emailInput}
           />
         </View>
@@ -53,7 +115,14 @@ export default function CreateAccount({ navigation }) {
         <View style={styles.inputContainer}>
           <TextInput
             blurOnSubmit={false}
+            autoCapitalize="none"
             returnKeyType="done"
+            value={password}
+            secureTextEntry={true}
+            onChangeText={(password) => setPassword(password)}
+            onSubmitEditing={() => {
+              //passwordCheck();
+            }}
             style={styles.passwordInput}
           />
         </View>
@@ -63,12 +132,26 @@ export default function CreateAccount({ navigation }) {
           <TextInput
             blurOnSubmit={false}
             returnKeyType="done"
+            value={confirmPassword}
+            secureTextEntry={true}
+            onChangeText={(confirmPassword) =>
+              setConfirmPassword(confirmPassword)
+            }
             style={styles.confirmPasswordInput}
           />
         </View>
       </View>
 
-      <TouchableOpacity style={styles.createAccount} onPress={() => signUp()}>
+      <TouchableOpacity
+        style={styles.createAccount}
+        onPress={async () => {
+          checkTextInput();
+          apis
+            .createUser(user)
+            .then((response) => console.log(response))
+            .catch((error) => console.log(error));
+        }}
+      >
         <Text style={styles.createAccountText}>Create Account</Text>
       </TouchableOpacity>
     </View>
