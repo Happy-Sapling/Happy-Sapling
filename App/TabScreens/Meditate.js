@@ -1,22 +1,25 @@
-
 import { StatusBar } from "expo-status-bar";
 import React, { useRef } from "react";
-import { StyleSheet, Text, View, Dimensions, Animated, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  Animated,
+  Image,
+} from "react-native";
 
 const { width, height } = Dimensions.get("window");
-const circleWidth = width*0.6;
+const circleWidth = width * 0.6;
 
-import nav_bar from '../../assets/nav_bar.png';
+import nav_bar from "../../assets/nav_bar.png";
 import AppLoading from "expo-app-loading";
 
-import {
-  useFonts,
-  Lato_400Regular
-} from "@expo-google-fonts/lato";
+import { useFonts, Lato_400Regular } from "@expo-google-fonts/lato";
 
 export default function Meditate({ navigation }) {
   let [fontsLoaded] = useFonts({
-    Lato_400Regular
+    Lato_400Regular,
   });
   const move = useRef(new Animated.Value(0)).current;
   const textOpacity = useRef(new Animated.Value(1)).current;
@@ -61,17 +64,14 @@ export default function Meditate({ navigation }) {
   if (!fontsLoaded) {
     return <AppLoading />;
   } else {
-  return (
-    <View style={styles.container}>
-      <Text>Meditate Screen</Text>
-    </View>
-  );
-}}
-
-// Animated.timing(this.state.posY).stop();
-// https://stackoverflow.com/questions/42149793/how-to-stop-a-looping-animation-in-react-native
-
+    return (
+      <View style={styles.container}>
+        <Text>Meditate Screen</Text>
+      </View>
+    );
+  }
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
