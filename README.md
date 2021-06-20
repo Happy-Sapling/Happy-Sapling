@@ -42,3 +42,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
  
 Runs the development server to connect with the MongoDB database. In the terminal "listening on port 9000... Database Connected Succesfully" should be running.
 
+### `expo start`
+Runs the mobile application on expo.
+
