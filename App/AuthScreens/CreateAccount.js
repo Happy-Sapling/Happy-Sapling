@@ -12,7 +12,6 @@ import { useState } from "react";
 import apis from "../../api";
 
 import { AuthContext } from "../context";
-import { NavigationContainer } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("screen");
 
