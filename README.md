@@ -33,7 +33,7 @@ One area of our app that has very strong potential is the calendar section. In t
  
 List of dependencies:
  
- # Backend installations:
+ ### Backend installations:
 - npm init --yes
 - npm install -g nodemon
 - npm i express
@@ -50,7 +50,7 @@ List of dependencies:
 - npm i dotenv
 - npm install react-router-dom
 
-# Frontend installations:
+### Frontend installations:
 - npm install axios
 - npm install @react-native-async-storage/async-storage
 - npm i @expo-google-fonts/lato
