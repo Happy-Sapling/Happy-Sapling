@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
   },
   timerContainer: {
     left: "-3%",
-    bottom: '-135%',
+    bottom: '-130%',
   },
   timerButton: {
     width: 205,
