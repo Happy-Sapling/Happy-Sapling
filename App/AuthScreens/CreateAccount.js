@@ -9,7 +9,7 @@ import {
   Alert,
 } from "react-native";
 import { useState } from "react";
-import apis from "../../api";
+// import apis from "../../api";
 
 import { AuthContext } from "../context";
 
@@ -25,50 +25,50 @@ export default function CreateAccount({ navigation }) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const user = {
-    firstName: first,
-    lastName: last,
-    email: email,
-    password: password,
-  };
+  // const user = {
+  //   firstName: first,
+  //   lastName: last,
+  //   email: email,
+  //   password: password,
+  // };
 
-  const checkTextInput = () => {
-    if (first === "" || first === null) {
-      Alert.alert("Please enter your first name");
-    } else if (last === "" || last === null) {
-      Alert.alert("Please enter your last name");
-    } else if (email === "" || email === null) {
-      Alert.alert("Please enter an email");
-    } else if (password === "" || password === null) {
-      Alert.alert("Oops, you forgot to enter a password.");
-    } else if (confirmPassword === "" || confirmPassword === null) {
-      Alert.alert("Please confirm your password");
-    } else if (confirmPassword !== password) {
-      Alert.alert("Passwords do not match");
-    } else {
-      navigation.push("SignIn");
-    }
-  };
+  // const checkTextInput = () => {
+  //   if (first === "" || first === null) {
+  //     Alert.alert("Please enter your first name");
+  //   } else if (last === "" || last === null) {
+  //     Alert.alert("Please enter your last name");
+  //   } else if (email === "" || email === null) {
+  //     Alert.alert("Please enter an email");
+  //   } else if (password === "" || password === null) {
+  //     Alert.alert("Oops, you forgot to enter a password.");
+  //   } else if (confirmPassword === "" || confirmPassword === null) {
+  //     Alert.alert("Please confirm your password");
+  //   } else if (confirmPassword !== password) {
+  //     Alert.alert("Passwords do not match");
+  //   } else {
+  //     navigation.push("SignIn");
+  //   }
+  // };
 
-  const lengthCheck = () => {
-    if (email.length < 8) {
-      Alert.alert("Too short!");
-    }
-  };
+  // const lengthCheck = () => {
+  //   if (email.length < 8) {
+  //     Alert.alert("Too short!");
+  //   }
+  // };
 
-  var strongRegex = new RegExp(
-    "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
-  );
+  // var strongRegex = new RegExp(
+  //   "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
+  // );
 
-  const passwordCheck = () => {
-    if (strongRegex.test(password)) {
-      return;
-    } else {
-      Alert.alert(
-        "Password must contain at least:1 lowercase alphabetical character, 1 uppercase alphabetical character,  1 numeric character, 1 special character and be 8 characters long."
-      );
-    }
-  };
+  // const passwordCheck = () => {
+  //   if (strongRegex.test(password)) {
+  //     return;
+  //   } else {
+  //     Alert.alert(
+  //       "Password must contain at least:1 lowercase alphabetical character, 1 uppercase alphabetical character,  1 numeric character, 1 special character and be 8 characters long."
+  //     );
+  //   }
+  // };
 
   return (
     <View style={styles.container}>
@@ -145,11 +145,12 @@ export default function CreateAccount({ navigation }) {
       <TouchableOpacity
         style={styles.createAccount}
         onPress={async () => {
-          checkTextInput();
-          apis
-            .createUser(user)
-            .then((response) => console.log(response))
-            .catch((error) => console.log(error));
+          // checkTextInput();
+          // apis
+          //   .createUser(user)
+          //   .then((response) => console.log(response))
+          //   .catch((error) => console.log(error));
+          signIn();
         }}
       >
         <Text style={styles.createAccountText}>Create Account</Text>

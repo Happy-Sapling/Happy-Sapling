@@ -20,9 +20,9 @@ import {
   Lato_900Black,
 } from "@expo-google-fonts/lato";
 import AppLoading from "expo-app-loading";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import api from "../../api";
-import authService from "../../api/services/authService";
+// import AsyncStorage from "@react-native-async-storage/async-storage";
+// import api from "../../api";
+// import authService from "../../api/services/authService";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -32,18 +32,18 @@ export default function SignIn({ navigation }) {
   const [password, setPassword] = useState("");
   const [users, setUsers] = useState([]);
 
-  React.useEffect(() => {
-    async function loadDataAsync() {
-      try {
-        await api.getUsers().then((usersList) => {
-          setUsers(usersList.data.data);
-        });
-      } catch (e) {
-        console.warn(e);
-      }
-    }
-    loadDataAsync();
-  }, []);
+  // React.useEffect(() => {
+  //   async function loadDataAsync() {
+  //     try {
+  //       await api.getUsers().then((usersList) => {
+  //         setUsers(usersList.data.data);
+  //       });
+  //     } catch (e) {
+  //       console.warn(e);
+  //     }
+  //   }
+  //   loadDataAsync();
+  // }, []);
 
   let [fontsLoaded] = useFonts({
     Lato_300Light,
@@ -54,41 +54,41 @@ export default function SignIn({ navigation }) {
   if (!fontsLoaded) {
     return <AppLoading />;
   } else {
-    const onSubmit = async () => {
-      try {
-        let test = await authService.login(email, password);
-        await AsyncStorage.setItem("token", test.id);
-        signIn();
-        console.log(test);
-      } catch (error) {
-        console.log(error);
+    // const onSubmit = async () => {
+    //   try {
+    //     let test = await authService.login(email, password);
+    //     await AsyncStorage.setItem("token", test.id);
+    //     signIn();
+    //     console.log(test);
+    //   } catch (error) {
+    //     console.log(error);
 
-        if (error.message == "Request failed with status code 404") {
-          Alert.alert("Email not found. Please create an account.");
-          return;
-        } else if (error.message == "Request failed with status code 401") {
-          Alert.alert("Invalid password!");
-          return;
-        } else if (error.message == "Request failed with status code 403") {
-          Alert.alert("Pending Account. Please Verify Your Email!");
-          return;
-        } else if (error.message == "Request failed with status code 500") {
-          Alert.alert("Something went wrong.");
-          return;
-        }
-      }
-    };
+    //     if (error.message == "Request failed with status code 404") {
+    //       Alert.alert("Email not found. Please create an account.");
+    //       return;
+    //     } else if (error.message == "Request failed with status code 401") {
+    //       Alert.alert("Invalid password!");
+    //       return;
+    //     } else if (error.message == "Request failed with status code 403") {
+    //       Alert.alert("Pending Account. Please Verify Your Email!");
+    //       return;
+    //     } else if (error.message == "Request failed with status code 500") {
+    //       Alert.alert("Something went wrong.");
+    //       return;
+    //     }
+    //   }
+    // };
 
-    const checkTextInput = () => {
-      if (email === "" || email === null) {
-        Alert.alert("Please enter an email");
-        return true;
-      } else if (password === "" || password === null) {
-        Alert.alert("Please enter a password");
-        return true;
-      }
-      return false;
-    };
+    // const checkTextInput = () => {
+    //   if (email === "" || email === null) {
+    //     Alert.alert("Please enter an email");
+    //     return true;
+    //   } else if (password === "" || password === null) {
+    //     Alert.alert("Please enter a password");
+    //     return true;
+    //   }
+    //   return false;
+    // };
 
     return (
       <View style={styles.container}>
@@ -135,10 +135,11 @@ export default function SignIn({ navigation }) {
           <TouchableOpacity
             style={styles.SignIn}
             onPress={() => {
-              if (checkTextInput() == false) {
-                onSubmit();
+              // if (checkTextInput() == false) {
+              //   onSubmit();
+                signIn();
               }
-            }}
+            }
           >
             <View
               style={{
