@@ -1,32 +1,3 @@
-/* import React from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
-
-export default function Accomplishments({ navigation }) {
-  return (
-    <View style={styles.container}>
-      <Text>Accomplishments Screen</Text>
-      <Button
-        title="Submit Entry"
-        onPress={() => navigation.push("AccomplishmentsLog")}
-      />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  button: {
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    marginVertical: 10,
-    borderRadius: 5,
-  },
-}); */
-
 import * as React from 'react';
 import { 
   Text, 
@@ -35,6 +6,7 @@ import {
   Dimensions,
   TextInput,
   TouchableOpacity } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 const {width, height} = Dimensions.get("screen")
 
@@ -47,8 +19,9 @@ export default function Accomplishments({ navigation }) {
           Of the Day
         </Text>
       </View>
-      {/* I am not sure how to add in an icon for the navigation */}
-      {/* onPress={() => navigation.push("AccomplishmentsLog")} */}
+      <View style={styles.trophy}>
+        <Ionicons name="trophy" size={32} color="black" onPress={() => navigation.push("AccomplishmentsLog")}/>
+      </View>
 
         <View style={styles.red}>
           <TextInput style={styles.textBox}
@@ -180,5 +153,10 @@ const styles = StyleSheet.create({
     borderRadius:15,
     fontSize:20,
     color: "#474747"
+  },
+  trophy:{
+    marginLeft:width *.83,
+    marginTop:-120,
+    paddingVertical:50
   }
 });
