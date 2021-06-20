@@ -10,15 +10,20 @@ import {
 
 import {
   useFonts,
-  Lato_300Light,
-  Lato_400Regular,
-  Lato_700Bold,
-  Lato_900Black,
+  Lato_400Regular
 } from "@expo-google-fonts/lato";
+
+import AppLoading from "expo-app-loading";
 
 const { width, height } = Dimensions.get("screen");
 
 export default function Question3({ navigation }) {
+  let [fontsLoaded] = useFonts({
+    Lato_400Regular
+  });
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>What is one goal you would like to accomplish today?</Text>
@@ -40,7 +45,7 @@ export default function Question3({ navigation }) {
       </View>
     </View>
   );
-}
+}}
 
 const styles = StyleSheet.create({
   container: {
