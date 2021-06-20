@@ -6,16 +6,17 @@ const { width, height } = Dimensions.get("window");
 const circleWidth = width*0.6;
 
 import nav_bar from '../../assets/nav_bar.png';
+import AppLoading from "expo-app-loading";
 
 import {
   useFonts,
-  Lato_300Light,
-  Lato_400Regular,
-  Lato_700Bold,
-  Lato_900Black,
+  Lato_400Regular
 } from "@expo-google-fonts/lato";
 
 export default function Meditate({ navigation }) {
+  let [fontsLoaded] = useFonts({
+    Lato_400Regular
+  });
   const move = useRef(new Animated.Value(0)).current;
   const textOpacity = useRef(new Animated.Value(1)).current;
   Animated.loop(
@@ -56,6 +57,9 @@ export default function Meditate({ navigation }) {
     inputRange: [0, 1],
     outputRange: [1, 0],
   });
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
   return (
     <View style={styles.container}>
         <Text style={styles.title}>MEDITATE</Text>
@@ -113,7 +117,7 @@ export default function Meditate({ navigation }) {
       <Image style={styles.image} source={nav_bar} />
     </View>
   );
-}
+}}
 
 // Animated.timing(this.state.posY).stop();
 // https://stackoverflow.com/questions/42149793/how-to-stop-a-looping-animation-in-react-native
