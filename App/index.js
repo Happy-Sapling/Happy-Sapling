@@ -70,13 +70,18 @@ const HomeStackScreen = () => (
 const JournalStack = createStackNavigator();
 const JournalStackScreen = () => (
   <JournalStack.Navigator>
-    <JournalStack.Screen name="Journal" component={Journal} options={{ headerShown: false }}/>
+    <JournalStack.Screen
+      name="Journal"
+      component={Journal}
+      options={{ headerShown: false }}
+    />
     <JournalStack.Screen
       name="JournalLog"
       component={JournalLog}
       options={{
         animationEnabled: false,
-        headerShown: false
+        headerTitle: "",
+        headerStyle: { elevation: 0, backgroundColor: "#f5f5f5" },
       }}
     />
   </JournalStack.Navigator>
