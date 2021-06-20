@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="pictures/icon.png" alt="Logo" width="200px" /><br/>
+</p>
+
 # Happy-Sapling
 
 Happy Sapling is an all-in-one mental health, meditation, and goal-fulfilling mobile application. Users can record their accomplishments and journal entries to look back later on their successes!
