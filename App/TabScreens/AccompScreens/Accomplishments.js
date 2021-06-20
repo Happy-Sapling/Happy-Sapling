@@ -8,9 +8,17 @@ import {
   TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+import { useFonts, Lato_400Regular } from "@expo-google-fonts/lato";
+import AppLoading from "expo-app-loading";
 const {width, height} = Dimensions.get("screen")
 
 export default function Accomplishments({ navigation }) {
+  let [fontsLoaded] = useFonts({
+    Lato_400Regular,
+  });
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>ACCOMPLISHMENTS</Text>
@@ -63,7 +71,7 @@ export default function Accomplishments({ navigation }) {
         </TouchableOpacity>
     </View>
   );
-}
+}}
 
 const styles = StyleSheet.create({
   container: {
@@ -74,24 +82,28 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   title: {
-    fontSize: 25,
+    fontSize: 29,
     color: "#0D0D0D",
     textAlign: 'left',
     paddingHorizontal: 20,
-    marginTop:-20
+    fontFamily: 'Lato_400Regular'
   },
   subtitle:{
-    marginTop:height *.0017,
+    top: 10,
     color:"#484646",
     fontSize: 20,
     textAlign: 'left',
     paddingHorizontal: 20,
     paddingVertical:4,
-    marginBottom:20
+    marginBottom:30,
+    fontFamily: 'Lato_400Regular'
   },
    textBox:{
     paddingHorizontal: 20,
     fontSize: 20,
+    fontFamily: 'Lato_400Regular',
+    top: 10,
+    left: 3
   },
   red:{
     backgroundColor:"#F5CDDE",
@@ -102,7 +114,6 @@ const styles = StyleSheet.create({
     marginBottom:14,
     paddingVertical:22
   },
-
   orange:{
     backgroundColor:"#F9DED7",
     borderRadius:20,
@@ -112,7 +123,6 @@ const styles = StyleSheet.create({
     marginBottom:14,
     paddingVertical:22
   },
-
   yellow:{
     backgroundColor:"#FBF7D5",
     borderRadius:20,
@@ -122,7 +132,6 @@ const styles = StyleSheet.create({
     marginBottom:14,
     paddingVertical:22
   },
-
   green:{
     backgroundColor:"#D4ECE0",
     borderRadius:20,
@@ -132,7 +141,6 @@ const styles = StyleSheet.create({
     marginBottom:14,
     paddingVertical:22
   },
-
   blue:{
     backgroundColor:"#CCE1F2",
     borderRadius:20,
@@ -143,20 +151,24 @@ const styles = StyleSheet.create({
     paddingVertical:22
   },
   submit:{
-    marginTop:15,      
+    marginTop:8,      
     alignSelf:"center",
     textAlign:"center",
     textAlignVertical:"center",
-    width:110,
-    height:40,
+    width:width*0.43,
+    height:height*0.073,
     backgroundColor:"#CACACA",
     borderRadius:15,
-    fontSize:20,
-    color: "#474747"
+    fontSize:21,
+    color: "#474747",
+    fontFamily: 'Lato_400Regular'
   },
   trophy:{
-    marginLeft:width *.83,
-    marginTop:-120,
-    paddingVertical:50
+    margin: 10,
+    padding: 5,
+    position: 'absolute',
+    top: height*0.065,
+    right: width*0.04,
+    zIndex: 2
   }
 });

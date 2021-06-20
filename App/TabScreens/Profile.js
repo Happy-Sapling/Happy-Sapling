@@ -33,7 +33,7 @@ export default function Profile({ navigation }) {
             source={require("../../assets/alice.png")}
           />
           <Text style={styles.aliceName}>Alice Smith</Text>
-          <Text style={styles.aliceFeeling}>Feeling Happy</Text>
+          <Text style={styles.aliceFeeling}>Feeling:   Happy</Text>
           <View style={styles.aliceFeelingColor}></View>
         </View>
 
@@ -107,13 +107,13 @@ const styles = StyleSheet.create({
     color: "#484646",
     fontSize: 24,
     fontFamily: "Lato_400Regular",
-    top: height * -0.035,
+    top: height * -0.015,
   },
   titleText: {
     marginTop: height * 0.001, // 10
     color: "#0D0D0D",
     fontSize: 40,
-    top: height * -0.025,
+    fontFamily: "Lato_400Regular",
   },
   userSection: {
     flex: 0.3,
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     zIndex: 1.2,
     position: "absolute",
     top: height * 0.09,
-    right: width * 0.06,
+    right: width * 0.04,
     fontFamily: "Lato_400Regular",
   },
   aliceFeelingColor: {
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     position: "absolute",
     top: height * 0.087,
-    right: width * 0.043,
+    right: width * 0.025,
   },
   settingSection: {
     flex: 0.25,
