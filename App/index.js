@@ -8,7 +8,7 @@ import CreateAccount from "./AuthScreens/CreateAccount";
 import Home from "./TabScreens/Home";
 import Journal from "./TabScreens/JournalScreens/Journal";
 import JournalLog from "./TabScreens/JournalScreens/JournalLog";
-import Calendar from "./TabScreens/Calendar";
+import CalendarScreen from "./TabScreens/CalendarScreen";
 import Meditate from "./TabScreens/Meditate";
 import Question1 from "./TabScreens/QuestionsScreens/Question1";
 import Question2 from "./TabScreens/QuestionsScreens/Question2";
@@ -49,7 +49,7 @@ const TabsScreen = () => (
   <Tabs.Navigator tabBarOptions={{ keyboardHidesTabBar: true }}>
     <Tabs.Screen name="Home" component={HomeStackScreen} />
     <Tabs.Screen name="Journal" component={JournalStackScreen} />
-    <Tabs.Screen name="Calendar" component={CalendarStackScreen} />
+    <Tabs.Screen name="CalendarScreen" component={CalendarScreenStackScreen} />
     <Tabs.Screen name="Meditate" component={MeditateStackScreen} />
     <Tabs.Screen name="Questions" component={QuestionsStackScreen} />
     <Tabs.Screen
@@ -70,28 +70,48 @@ const HomeStackScreen = () => (
 const JournalStack = createStackNavigator();
 const JournalStackScreen = () => (
   <JournalStack.Navigator>
-    <JournalStack.Screen name="Journal" component={Journal} />
+    <JournalStack.Screen
+      name="Journal"
+      component={Journal}
+      options={{ headerShown: false }}
+    />
     <JournalStack.Screen
       name="JournalLog"
       component={JournalLog}
       options={{
         animationEnabled: false,
+        headerTitle: "",
+        headerStyle: { elevation: 0, backgroundColor: "#f5f5f5" },
       }}
     />
   </JournalStack.Navigator>
 );
 
-const CalendarStack = createStackNavigator();
-const CalendarStackScreen = () => (
-  <CalendarStack.Navigator>
-    <CalendarStack.Screen name="Calendar" component={Calendar} />
-  </CalendarStack.Navigator>
+const CalendarScreenStack = createStackNavigator();
+const CalendarScreenStackScreen = () => (
+  <CalendarScreenStack.Navigator>
+    <CalendarScreenStack.Screen
+      name="CalendarScreen"
+      component={CalendarScreen}
+      options={{
+        animationEnabled: false,
+        headerShown: false,
+      }}
+    />
+  </CalendarScreenStack.Navigator>
 );
 
 const MeditateStack = createStackNavigator();
 const MeditateStackScreen = () => (
   <MeditateStack.Navigator>
-    <MeditateStack.Screen name="Meditate" component={Meditate} />
+    <MeditateStack.Screen
+      name="Meditate"
+      component={Meditate}
+      options={{
+        animationEnabled: false,
+        headerShown: false,
+      }}
+    />
   </MeditateStack.Navigator>
 );
 
@@ -150,7 +170,11 @@ const AccomplishmentsStackScreen = () => (
 const ProfileStack = createStackNavigator();
 const ProfileStackScreen = () => (
   <ProfileStack.Navigator>
-    <ProfileStack.Screen name="Profile" component={Profile} />
+    <ProfileStack.Screen
+      name="Profile"
+      component={Profile}
+      options={{ headerShown: false }}
+    />
   </ProfileStack.Navigator>
 );
 
