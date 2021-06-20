@@ -93,6 +93,10 @@ const CalendarScreenStackScreen = () => (
     <CalendarScreenStack.Screen
       name="CalendarScreen"
       component={CalendarScreen}
+      options={{
+        animationEnabled: false,
+        headerShown: false,
+      }}
     />
   </CalendarScreenStack.Navigator>
 );
@@ -100,7 +104,14 @@ const CalendarScreenStackScreen = () => (
 const MeditateStack = createStackNavigator();
 const MeditateStackScreen = () => (
   <MeditateStack.Navigator>
-    <MeditateStack.Screen name="Meditate" component={Meditate} />
+    <MeditateStack.Screen
+      name="Meditate"
+      component={Meditate}
+      options={{
+        animationEnabled: false,
+        headerShown: false,
+      }}
+    />
   </MeditateStack.Navigator>
 );
 
