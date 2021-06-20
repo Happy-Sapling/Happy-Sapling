@@ -70,7 +70,11 @@ const HomeStackScreen = () => (
 const JournalStack = createStackNavigator();
 const JournalStackScreen = () => (
   <JournalStack.Navigator>
-    <JournalStack.Screen name="Journal" component={Journal} />
+    <JournalStack.Screen
+      name="Journal"
+      component={Journal}
+      options={{ headerShown: false }}
+    />
     <JournalStack.Screen
       name="JournalLog"
       component={JournalLog}

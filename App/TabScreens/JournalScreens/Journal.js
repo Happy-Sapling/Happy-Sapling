@@ -9,8 +9,7 @@ import {
   Dimensions,
 } from "react-native";
 import apis from "../../../api";
-// You can import from local files
-// or any pure javascript modules available in npm
+import { Ionicons } from "@expo/vector-icons";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -25,7 +24,17 @@ export default function Journal({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Journal</Text>
+      <View style={{ flexDirection: "row", backgroundColor: "transparent" }}>
+        <Text style={styles.title}>Journal</Text>
+        <Ionicons
+          name="journal"
+          size={35}
+          color="black"
+          style={{ marginTop: 30, marginLeft: "25%" }}
+          onPress={() => navigation.push("JournalLog")}
+        />
+      </View>
+
       <TextInput
         style={styles.date}
         value={date}
@@ -73,8 +82,7 @@ const styles = StyleSheet.create({
   title: {
     top: "4%",
     right: "22%",
-    margin: 20,
-    padding: 10,
+    marginLeft: "15%",
     fontSize: 45,
     fontWeight: "bold",
     textAlign: "center",
