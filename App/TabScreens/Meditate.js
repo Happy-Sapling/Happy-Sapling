@@ -6,7 +6,6 @@ import { StyleSheet, Text, View, Dimensions, Animated, Image } from "react-nativ
 const { width, height } = Dimensions.get("window");
 const circleWidth = width*0.6;
 
-import nav_bar from '../../assets/nav_bar.png';
 import AppLoading from "expo-app-loading";
 
 import {
@@ -71,7 +70,6 @@ export default function Meditate({ navigation }) {
 // Animated.timing(this.state.posY).stop();
 // https://stackoverflow.com/questions/42149793/how-to-stop-a-looping-animation-in-react-native
 
-}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
