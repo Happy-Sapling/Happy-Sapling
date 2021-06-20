@@ -28,6 +28,41 @@ We learned a lot about React Native, as two group members had never used the fra
 ### What's next for Happy Sapling
 One area of our app that has very strong potential is the calendar section. In the future, we would like to make this calendar much more interactive, allowing users to see other information about any given day on the calendar, including their responses to the opening questions. We would also like to allow users to share their entries and successes on social media by connecting popular platforms to the app. Finally, we would like implement the streak feature and connect this to the backend.
 
+
+## Dependencies to Install in the Root Directory
+ 
+List of dependencies:
+ 
+ # Backend installations:
+- npm init --yes
+- npm install -g nodemon
+- npm i express
+- npm install mongoose
+- npm install body-parser
+- npm install cors
+- npm install mongoose
+- npm install mongodb
+- npm i joi
+
+- npm i bcryptjs
+- npm i jsonwebtoken
+- npm i nodemailer
+- npm i dotenv
+- npm install react-router-dom
+
+# Frontend installations:
+- npm install axios
+- npm install @react-native-async-storage/async-storage
+- npm i @expo-google-fonts/lato
+- npm i expo-app-loading
+- npm i @expo/vector-icons
+- expo install expo-linear-gradient
+- npm install @react-navigation/native
+- expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+- npm install @react-navigation/stack
+- npm install @react-navigation/bottom-tabs
+- npm install --save react-native-calendars
+
 ## Commands to Run
  
 In the project directory, you can run the following commands:
