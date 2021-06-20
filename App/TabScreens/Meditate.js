@@ -9,6 +9,7 @@ import {
   Image,
 } from "react-native";
 
+
 import { useFonts, Lato_400Regular } from "@expo-google-fonts/lato";
 
 import AppLoading from "expo-app-loading";
@@ -123,6 +124,7 @@ export default function Meditate({ navigation }) {
     );
   }
 }
+
 
 // Animated.timing(this.state.posY).stop();
 // https://stackoverflow.com/questions/42149793/how-to-stop-a-looping-animation-in-react-native
