@@ -8,7 +8,7 @@ import CreateAccount from "./AuthScreens/CreateAccount";
 import Home from "./TabScreens/Home";
 import Journal from "./TabScreens/JournalScreens/Journal";
 import JournalLog from "./TabScreens/JournalScreens/JournalLog";
-import Calendar from "./TabScreens/Calendar";
+import CalendarScreen from "./TabScreens/CalendarScreen";
 import Meditate from "./TabScreens/Meditate";
 import Question1 from "./TabScreens/QuestionsScreens/Question1";
 import Question2 from "./TabScreens/QuestionsScreens/Question2";
@@ -49,7 +49,7 @@ const TabsScreen = () => (
   <Tabs.Navigator tabBarOptions={{ keyboardHidesTabBar: true }}>
     <Tabs.Screen name="Home" component={HomeStackScreen} />
     <Tabs.Screen name="Journal" component={JournalStackScreen} />
-    <Tabs.Screen name="Calendar" component={CalendarStackScreen} />
+    <Tabs.Screen name="CalendarScreen" component={CalendarScreenStackScreen} />
     <Tabs.Screen name="Meditate" component={MeditateStackScreen} />
     <Tabs.Screen name="Questions" component={QuestionsStackScreen} />
     <Tabs.Screen
@@ -87,11 +87,14 @@ const JournalStackScreen = () => (
   </JournalStack.Navigator>
 );
 
-const CalendarStack = createStackNavigator();
-const CalendarStackScreen = () => (
-  <CalendarStack.Navigator>
-    <CalendarStack.Screen name="Calendar" component={Calendar} />
-  </CalendarStack.Navigator>
+const CalendarScreenStack = createStackNavigator();
+const CalendarScreenStackScreen = () => (
+  <CalendarScreenStack.Navigator>
+    <CalendarScreenStack.Screen
+      name="CalendarScreen"
+      component={CalendarScreen}
+    />
+  </CalendarScreenStack.Navigator>
 );
 
 const MeditateStack = createStackNavigator();
