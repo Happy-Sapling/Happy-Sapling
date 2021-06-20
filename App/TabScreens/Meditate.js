@@ -118,14 +118,16 @@ export default function Meditate({ navigation }) {
           );
         })}
         <View style={styles.timerContainer}>
-          <Image style={styles.timerButton} source={require("../../assets/timerOutline.png")} />
+          <Image
+            style={styles.timerButton}
+            source={require("../../assets/timerOutline.png")}
+          />
           <Text style={styles.timerText}>1 0 : 0 0</Text>
         </View>
       </View>
     );
   }
 }
-
 
 // Animated.timing(this.state.posY).stop();
 // https://stackoverflow.com/questions/42149793/how-to-stop-a-looping-animation-in-react-native
@@ -141,7 +143,7 @@ const styles = StyleSheet.create({
     top: "38%",
   },
   title: {
-    top: '-100%',
+    top: "-100%",
     right: 70,
     margin: 20,
     padding: 10,
@@ -154,7 +156,7 @@ const styles = StyleSheet.create({
   },
   timerContainer: {
     left: "-3%",
-    bottom: '-130%',
+    bottom: "-130%",
   },
   timerButton: {
     width: 205,
@@ -164,7 +166,7 @@ const styles = StyleSheet.create({
   timerText: {
     fontSize: 25,
     fontFamily: "Lato_400Regular",
-    alignSelf: 'center',
-    bottom: 45
-  }
+    alignSelf: "center",
+    bottom: 45,
+  },
 });

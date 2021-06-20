@@ -5,11 +5,14 @@ import { Text, View, StyleSheet, Dimensions, Image } from "react-native";
 import { useFonts, Lato_400Regular } from "@expo-google-fonts/lato";
 
 import AppLoading from "expo-app-loading";
+import apis from "../../api";
+import authService from "../../api/services/authService";
 
 const { width, height } = Dimensions.get("screen");
 
 export default function Profile({ navigation }) {
   const { signOut } = React.useContext(AuthContext);
+
   let [fontsLoaded] = useFonts({
     Lato_400Regular,
   });
@@ -33,7 +36,7 @@ export default function Profile({ navigation }) {
             source={require("../../assets/alice.png")}
           />
           <Text style={styles.aliceName}>Alice Smith</Text>
-          <Text style={styles.aliceFeeling}>Feeling:   Happy</Text>
+          <Text style={styles.aliceFeeling}>Feeling: Happy</Text>
           <View style={styles.aliceFeelingColor}></View>
         </View>
 
@@ -55,7 +58,9 @@ export default function Profile({ navigation }) {
               style={styles.settingImage2}
               source={require("../../assets/trashcan.png")}
             />
-            <Text style={styles.settingText2}>Delete Account</Text>
+            <Text style={styles.settingText2} onPress={() => signOut()}>
+              Delete Account
+            </Text>
           </View>
         </View>
 

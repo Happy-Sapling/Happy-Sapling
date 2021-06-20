@@ -1,132 +1,130 @@
-import * as React from 'react';
-import { 
-  Text, 
-  View, 
-  StyleSheet,
-  Dimensions,
-  TextInput } from 'react-native';
+import * as React from "react";
+import { Text, View, StyleSheet, Dimensions, ScrollView } from "react-native";
+import apis from "../../../api";
 
-import { useFonts, Lato_400Regular } from "@expo-google-fonts/lato";
-import AppLoading from "expo-app-loading";
-const {width, height} = Dimensions.get("screen")
+const { width, height } = Dimensions.get("screen");
 
-export default function Accomplishments({ navigation }) {
-  let [fontsLoaded] = useFonts({
-    Lato_400Regular,
-  });
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  } else {
+export default function Accomplishments() {
+  const [TrophyLog, setTrophyLog] = React.useState([]);
+
+  React.useEffect(() => {
+    async function loadDataAsync() {
+      try {
+        await apis.getTrophys().then((trophyList) => {
+          setTrophyLog(trophyList.data.data);
+          console.log(TrophyLog);
+        });
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+    loadDataAsync();
+  }, []);
+  console.log(TrophyLog);
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>ACCOMPLISHMENTS  LOG</Text>
-
-      <View style={styles.selectDate}>
-          <Text style={styles.textBox}>Select Date</Text>
-        </View>
-
-        <View style={styles.red}>
-          <Text style={styles.textBox}>Show Accomplishment</Text>
-        </View>
-
-        <View style={styles.orange}>
-        <Text style={styles.textBox}>Show Accomplishment</Text>
-        </View>
-
-        <View style={styles.yellow}>
-        <Text style={styles.textBox}>Show Accomplishment</Text>
-        </View>
-
-        <View style={styles.green}>
-        <Text style={styles.textBox}>Show Accomplishment</Text>
-        </View>
-
-        <View style={styles.blue}>
-        <Text style={styles.textBox}>Show Accomplishment</Text>
-        </View> 
+      <Text style={styles.title}>ACCOMPLISHMENTS</Text>
+      <Text style={styles.title}>LOG</Text>
+      <ScrollView
+        style={{
+          height: "100%",
+          width: "88%",
+          top: 10,
+          margin: 20,
+          padding: 20,
+          borderRadius: 15,
+          backgroundColor: "#F9DED7",
+          position: "relative",
+          alignSelf: "center",
+        }}
+      >
+        {TrophyLog.map((TrophyLog) => (
+          <Text key={TrophyLog._id} style={styles.entryText}>
+            {TrophyLog.submission}
+          </Text>
+        ))}
+      </ScrollView>
     </View>
   );
-}}
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
     paddingTop: "10%",
-    backgroundColor: '#e5e5e5',
+    backgroundColor: "#e5e5e5",
     padding: 8,
-    marginTop:-10
+    marginTop: -10,
   },
   title: {
-    fontSize:28,
+    fontSize: 25,
     color: "#0D0D0D",
-    textAlign: 'center',
+    textAlign: "center",
     paddingHorizontal: 20,
-    fontFamily: 'Lato_400Regular',
-    left: -9,
-    top: 10
   },
-   textBox:{
+  textBox: {
     paddingHorizontal: 20,
     fontSize: 20,
-    color:"#474747",
-    fontFamily: 'Lato_400Regular',
-    top: 9
+    color: "#474747",
   },
-  selectDate:{
-    backgroundColor:"#CACACA",
-    borderRadius:20,
-    width: width*.89,
-    height: height *.095,
-    alignSelf:"center",
-    marginBottom:45,
+  selectDate: {
+    backgroundColor: "#CACACA",
+    borderRadius: 20,
+    width: width * 0.9,
+    height: height * 0.1,
+    alignSelf: "center",
+    marginBottom: 50,
     marginTop: 20,
-    paddingVertical:22,
-    top: '3%'
+    paddingVertical: 22,
   },
-  red:{
-    backgroundColor:"#F5CDDE",
-    borderRadius:20,
-    width: width*.9,
-    height: height *.1,
-    alignSelf:"center",
-    marginBottom:14,
-    paddingVertical:22,
+  red: {
+    backgroundColor: "#F5CDDE",
+    borderRadius: 20,
+    width: width * 0.9,
+    height: height * 0.1,
+    alignSelf: "center",
+    marginBottom: 14,
+    paddingVertical: 22,
   },
-  orange:{
-    backgroundColor:"#F9DED7",
-    borderRadius:20,
-    width: width*.9,
-    height: height *.1,
-    alignSelf:"center",
-    marginBottom:14,
-    paddingVertical:22
+
+  orange: {
+    backgroundColor: "#F9DED7",
+    borderRadius: 20,
+    width: width * 0.9,
+    height: height * 0.1,
+    alignSelf: "center",
+    marginBottom: 14,
+    paddingVertical: 22,
   },
-  yellow:{
-    backgroundColor:"#FBF7D5",
-    borderRadius:20,
-    width: width*.9,
-    height: height *.1,
-    alignSelf:"center",
-    marginBottom:14,
-    paddingVertical:22
+
+  yellow: {
+    backgroundColor: "#FBF7D5",
+    borderRadius: 20,
+    width: width * 0.9,
+    height: height * 0.1,
+    alignSelf: "center",
+    marginBottom: 14,
+    paddingVertical: 22,
   },
-  green:{
-    backgroundColor:"#D4ECE0",
-    borderRadius:20,
-    width: width*.9,
-    height: height *.1,
-    alignSelf:"center",
-    marginBottom:14,
-    paddingVertical:22
+
+  green: {
+    backgroundColor: "#D4ECE0",
+    borderRadius: 20,
+    width: width * 0.9,
+    height: height * 0.1,
+    alignSelf: "center",
+    marginBottom: 14,
+    paddingVertical: 22,
   },
-  blue:{
-    backgroundColor:"#CCE1F2",
-    borderRadius:20,
-    width: width*.9,
-    height: height *.1,
-    alignSelf:"center",
-    marginBottom:14,
-    paddingVertical:22
+
+  blue: {
+    backgroundColor: "#CCE1F2",
+    borderRadius: 20,
+    width: width * 0.9,
+    height: height * 0.1,
+    alignSelf: "center",
+    marginBottom: 14,
+    paddingVertical: 22,
   },
 });
