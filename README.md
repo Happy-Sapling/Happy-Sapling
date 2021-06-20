@@ -43,7 +43,6 @@ List of dependencies:
 - npm install mongoose
 - npm install mongodb
 - npm i joi
-
 - npm i bcryptjs
 - npm i jsonwebtoken
 - npm i nodemailer
